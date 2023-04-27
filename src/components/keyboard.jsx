@@ -9,7 +9,7 @@ function Keyboard() {
 
     const keysElements = keysArray.map((key, index) => (
         <a 
-        className={`keyboard__key keyboard__row-${
+        className={`Keyboard__key Keyboard__row-${
             index <= 9 ?
             1 :
             index <= 18 ?
@@ -19,7 +19,7 @@ function Keyboard() {
         >{key}</a>
     ))
     return (
-        <div className="keyboard">
+        <div className="Keyboard">
             {keysElements}
         </div>
     )
