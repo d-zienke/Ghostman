@@ -1,10 +1,10 @@
-# Hangman Game project
+# Ghostman Game project
 Implemented using HTML, JavaScript, React JS, SCSS and Vite
 
 ## Short description
-This is a simple word game where player needs to guess a randomly generated word, one letter at a time. There is a limited number of attempts and each wrong guess uncovers a part of a hangman image.
+This is a simple variation of the classic word game Hangman, where player needs to guess a randomly generated word, one letter at a time.
 
-Each letter, except the first one is displayed as an underscore ( `_` ). When the player has guessed a letter, every instance of the letter is uncovered. To win the game, player needs to uncover all letters before they run out of chances.
+Each letter is masked, displayed as an underscore ( `_` ). When the player has guessed a letter, every instance of this letter is uncovered. To win the game, player needs to uncover all letters before they run out of chances.
 
 ## Features to implement and new ideas
 * mobile version
