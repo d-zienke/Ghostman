@@ -20,21 +20,74 @@ img {
   max-width: 100%;
 }
 
-.keyboard {
+.Ghostman {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  column-gap: 3rem;
+  height: 90vh;
+  max-width: 80vw;
+  background-color: #EAF4FA;
+  font-family: "Fira Code", monospace;
+}
+.Ghostman__status {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+.Ghostman__picture-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Ghostman__picture {
+  max-width: 100%;
+}
+.Ghostman__status-msg {
+  font-size: 2rem;
+}
+.Ghostman__controls {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+.Ghostman__puzzle-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  padding: 1rem;
+}
+.Ghostman__puzzle {
+  font-size: 3rem;
+  letter-spacing: 0.2rem;
+}
+.Ghostman__button {
+  max-width: 30%;
+  padding: 0.5rem 1rem;
+  background-color: #CA91E2;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.Keyboard {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-gap: 10px;
+  max-width: 100%;
 }
-.keyboard__row-1 {
+.Keyboard__row-1 {
   grid-row: 1;
 }
-.keyboard__row-2 {
+.Keyboard__row-2 {
   grid-row: 2;
 }
-.keyboard__row-3 {
+.Keyboard__row-3 {
   grid-row: 3;
 }
-.keyboard__key {
+.Keyboard__key {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +97,7 @@ img {
   font-size: 24px;
   cursor: pointer;
 }
-.keyboard__key:hover {
+.Keyboard__key:hover {
   background-color: #BEBEBE;
 }
 
