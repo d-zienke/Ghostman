@@ -1,8 +1,10 @@
+import React from "react"
+import Keyboard from "./components/keyboard.jsx"
+
 function App() {
-  
   return (
-    <div className="App">
-      
+    <div className="app">
+      <Keyboard />
     </div>
   )
 }

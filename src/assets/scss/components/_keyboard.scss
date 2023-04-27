@@ -1,0 +1,33 @@
+@use '../abstracts/variables' as var;
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 10px;
+    
+    &__row-1 {
+      grid-row: 1;
+    }
+    &__row-2 {
+      grid-row: 2;
+    }
+    &__row-3 {
+      grid-row: 3;
+    }
+
+    
+    &__key {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var.$color-gray-light;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 24px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var.$color-gray-dark;
+      }
+    }
+  }
