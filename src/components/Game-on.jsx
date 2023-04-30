@@ -1,5 +1,3 @@
-import Keyboard from "./Keyboard.jsx"
-
 // images to be rendered in game
 import heartIcon from "../assets/images/heart_icon.svg"
 
@@ -22,9 +20,6 @@ function GameOn({ puzzle, chances }) {
       </div>
       <div className="Ghostman__puzzle">
         <p>{puzzle}</p>
-      </div>
-      <div className="Ghostman__keyboard">
-        <Keyboard />
       </div>
     </>
   )

@@ -3,7 +3,8 @@
 .Keyboard {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    grid-gap: 10px;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: .5rem;
     max-width: 100%;
     
     &__row-1 {
@@ -16,19 +17,28 @@
       grid-row: 3;
     }
 
-    
     &__key {
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: var.$color-gray-light;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 24px;
+      padding: 1rem;
+      border-radius: .5rem;
+      font-size: 1.5rem;
       cursor: pointer;
 
       &:hover {
         background-color: var.$color-gray-dark;
+      }
+
+      &--used {
+        background-color: var.$color-primary;
+        color: var.$color-primary;
+        cursor: not-allowed;
+        
+        &:hover {
+          background-color: var.$color-primary;
+        };
       }
     }
   }

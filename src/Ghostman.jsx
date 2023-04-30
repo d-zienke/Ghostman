@@ -4,14 +4,15 @@ import React, {useState, useEffect} from "react"
 import GameOn from "./components/Game-on"
 import GameOff from "./components/Game-off"
 import GameStatus from "./components/Game-status"
+import Keyboard from "./components/Keyboard.jsx"
 
 function Ghostman() {
   const [game, setGame] = useState({
-    isOn: false,
+    isOn: true,
     status: "On" // keep this capitalized to match the name of img
   })
   const [word, setWord] = useState("hello world")
-  const [guessedLetters, setGuessedLetters] = useState(["h", "l", "w"])
+  const [guessedLetters, setGuessedLetters] = useState([])
   const [chances, setChances] = useState(3)
   const wordArray = word.split("")
   const lettersToGuess = getLettersToGuess()
@@ -30,6 +31,22 @@ function Ghostman() {
     }).join("")
   }
 
+  function makeGuess(letter) {
+    if(guessedLetters.indexOf(letter) !== -1) {
+      showMessage(`already guessed`)
+    } else if (wordArray.indexOf(letter) !== -1) {
+      showMessage('well done')
+      setGuessedLetters(prevState => [...prevState, letter])
+    } else {
+      showMessage('try again')
+      setChances(prevChances => prevChances - 1)
+    }
+  }
+
+  function showMessage(message) {
+    console.log(message)
+  }
+
   return (
     <main className="Ghostman">
       <section className="Ghostman__status">
@@ -37,7 +54,12 @@ function Ghostman() {
       </section>
       <section className="Ghostman__controls">
         {game.isOn ? 
-          <GameOn puzzle={puzzle} chances={chances}/> 
+          <>
+            <GameOn puzzle={puzzle} chances={chances}/> 
+            <div className="Ghostman__keyboard">
+              <Keyboard handleClick={makeGuess} guessedLetters={guessedLetters}/>
+            </div>
+          </>
           : 
           <GameOff />
         }
