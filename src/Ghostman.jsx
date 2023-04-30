@@ -7,7 +7,7 @@ import GameStatus from "./components/Game-status"
 
 function Ghostman() {
   const [game, setGame] = useState({
-    isOn: true,
+    isOn: false,
     status: "On" // keep this capitalized to match the name of img
   })
   const [word, setWord] = useState("hello world")
@@ -32,18 +32,16 @@ function Ghostman() {
 
   return (
     <main className="Ghostman">
-      <GameStatus 
-        game={game}
-      />
+      <section className="Ghostman__status">
+        <GameStatus game={game}/>
+      </section>
       <section className="Ghostman__controls">
         {game.isOn ? 
-          <GameOn 
-            puzzle={puzzle}
-            chances={chances}
-          /> : 
+          <GameOn puzzle={puzzle} chances={chances}/> 
+          : 
           <GameOff />
         }
-        <div className="Ghostman__button">
+        <div className="Ghostman__button-container">
           <button className="btn">new game</button>
         </div>
       </section>

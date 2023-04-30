@@ -26,15 +26,18 @@ function GameStatus({ game }) {
   }
 
   return (
-    <section className="Ghostman__status">
-    <div className="Ghostman__picture">
-      <img src={switchPics()} alt="ghost picture" />
-    </div>
-    {game.isOn && 
-    <div className="Ghostman__message">
-      <p>Good Luck!</p>
-    </div>}
-  </section>
+    <>
+      <div className="Ghostman__picture">
+        <img src={switchPics()} alt="ghost picture" />
+      </div>
+      {game.isOn && 
+      <div className="Ghostman__message">
+        <p>Good Luck!</p>
+      </div>}
+      {/* <div className="Ghostman__message">
+        <p>Good Luck!</p>
+      </div> */}
+    </>
   )
 }
 

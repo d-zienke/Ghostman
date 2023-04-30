@@ -1,61 +1,142 @@
 @use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mixin;
 
 .Ghostman {
+    font-family: 'Fira Code', monospace;
+    background-color: var.$color-primary;
+
+    max-height: 100vh;
+    max-width: 100vw;
+    margin: 0 auto;
+
     display: grid;
     grid-template-columns: 30% 70%;
-    column-gap: 3rem;
-    height: 90vh;
-    max-width: 80vw;
-    background-color: var.$color-primary;
-    font-family: 'Fira Code', monospace;
+    grid-template-rows: none;
+    justify-content: center;
+    column-gap: 1rem;
+    position: relative;
 
+    // 1st of the two main containers -----------------------------------------
     &__status {
-        display: grid;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
-        align-content: center;
+        margin-left: 5rem;
     }
 
-    &__picture-container {
+    &__picture {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & img {
+            max-width: 70%;
+            // max-height: 70%;
+        }
+    }
+
+    &__message {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.5rem;
+        height: 25%;
+        text-align: center;
+    }
+
+    // 2nd of the two main containers -----------------------------------------
+    &__controls {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-block: 1.5rem;
+        padding-right: 4rem;
+        height: 100%;
+        z-index: 1;
+    }
+
+    &__button-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    &__picture {
-        max-width: 100%;
-    }
-
-    &__status-msg {
-        font-size: 2rem;
-    }
-
-    &__controls {
-        display: grid;
-        justify-content: center;
-        align-content: center;
-    }
-
-    &__puzzle-container {
+    // Game is on ---------------------
+    &__hearts {
         display: flex;
-        flex-wrap: wrap;
-        max-width: 100%;
-        padding: 1rem;
-    }
+        justify-content: flex-end;
+        width: 100%;
+        max-height: 2.5rem;
+        margin-bottom: 4rem;
 
+        > img {
+            margin-left: .2rem;
+        }
+    }
+    
     &__puzzle {
-        font-size: 3rem;
-		letter-spacing: 0.2rem;
+        font-size: 2.5rem;
+        margin-bottom: 4rem;
     }
 
-	&__button {
-		max-width: 30%;
-		padding: .5rem 1rem;
-		background-color: var.$color-accent;
-		border-radius: 1rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-size: 1.5rem;
-	}
+    &__keyboard {
+        align-self: center;
+        margin-bottom: 4rem;
+    }
+
+    // Game is off --------------------
+    &__intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        row-gap: 1.5rem;
+        margin-bottom: 4rem;
+        padding-inline: 2rem;
+        
+        & p {
+            font-size: 1.6rem;
+
+            &:nth-child(1) {
+                font-size: 2.5rem;
+            }
+
+            &:nth-child(2) {
+                padding-inline: 2rem;
+            }
+        }
+    }
+
+    &__call-to-start {
+        justify-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 2.5rem;
+        max-width: 70%;
+        margin-bottom: 2rem;
+    }
+}
+
+.btn {
+    border: none;
+    padding: .6rem 1.5rem;
+    background-color: var.$color-accent;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    &:hover, &:active {
+        background-color: var.$color-accent-dark;
+        color: white;
+    }
 }

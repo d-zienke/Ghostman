@@ -23,7 +23,9 @@ function GameOn({ puzzle, chances }) {
       <div className="Ghostman__puzzle">
         <p>{puzzle}</p>
       </div>
-      <Keyboard />
+      <div className="Ghostman__keyboard">
+        <Keyboard />
+      </div>
     </>
   )
 }
