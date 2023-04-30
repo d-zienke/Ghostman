@@ -1,0 +1,27 @@
+@use './variables' as var;
+
+
+// desktop-first
+@mixin breakpoint($breakpoint) {
+    // viewport: 0-600px <-- small
+    @if $breakpoint == sm {
+        @media (max-width: var.$bp-sm) {@content};
+    }
+    // viewport: 600-900px <-- medium
+    @if $breakpoint == md {
+        @media (min-width: var.$bp-sm) and 
+        (max-width: var.$bp-md) {@content};
+    }
+    // viewport: 900-1200px <-- large
+    @if $breakpoint == lg {
+        @media (min-width: var.$bp-md) and 
+        (max-width: var.$bp-lg) {@content};
+    }
+    // viewport: 1200-1800px <-- extra large
+    @if $breakpoint == xl {
+        @media (min-width: var.$bp-lg) and 
+        (max-width: var.$bp-xl) {@content};
+    }
+
+    // viewport: 1800+ <-- default (no media query)
+}
