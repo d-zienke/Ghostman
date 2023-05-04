@@ -135,7 +135,7 @@ function Ghostman() {
       <section className="Ghostman__status">
         <GameStatus game={game} statusMsg={statusMsg}/>
       </section>
-      <section className="Ghostman__controls">
+      <section className={game.isOn ? "Ghostman__controls" : "Ghostman__controls Ghostman__controls--inactive"}>
         {game.isOn ? 
           <>
             <GameOn puzzle={puzzle} chances={chances}/> 
