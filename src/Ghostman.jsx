@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useMemo} from "react"
+import { createClient } from '@supabase/supabase-js'
 
 // React components
 import GameOn from "./components/Game-on"
@@ -6,19 +7,53 @@ import GameOff from "./components/Game-off"
 import GameStatus from "./components/Game-status"
 import Keyboard from "./components/Keyboard.jsx"
 
+// import data from "./data"
+
 function Ghostman() {
   const [game, setGame] = useState({
     isOn: false,
     status: "off"
   })
-  const [word, setWord] = useState("hello world")
+  const [word, setWord] = useState("")
   const [guessedLetters, setGuessedLetters] = useState([])
-  const [chances, setChances] = useState(5)
+  const [chances, setChances] = useState(6)
   const [statusMsg, setStatusMsg] = useState("Good luck!")
   const wordArray = word.split("")
   const lettersToGuess = getLettersToGuess()
   const puzzle = getPuzzle()
+
+  useEffect(()=>{
+    getWord()
+      .then(data => {
+        setWord(data[0].puzzle_eng)
+      })
+      .catch(error => {
+        console.log(`Error: ${error}`)
+      })
+  },[])
   
+  async function getWord() {
+    const randomIndex = Math.floor(Math.random() * 100) + 1;
+    
+    const supabaseUrl = 'https://dtwbyxxwpwmlzdhjmcql.supabase.co'
+    const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
+    const supabase = createClient(supabaseUrl, supabaseKey)
+    
+    let { data: randomWord, error } = await supabase
+    .from('puzzles-eng')
+    .select('puzzle_eng')
+    .eq('id', randomIndex)
+
+    return randomWord
+  }
+
+  // getWord()
+  // function getWord() {
+  //   const wordsArray = data
+  //   const randomIndex = Math.floor(Math.random() * (data.length + 1));
+  //   return String(wordsArray[randomIndex].puzzle_eng)
+  // }
+
   function getLettersToGuess() {
     return wordArray.filter((letter, index) => {
       return (letter !== " " && wordArray.indexOf(letter) === index) ? letter : null
@@ -73,9 +108,16 @@ function Ghostman() {
   }
 
   function setNewGame() {
-    toggleGame(true, "on")
-    setGuessedLetters([])
-    setChances(5)
+    getWord()
+    .then(data => {
+      setWord(data[0].puzzle_eng)
+      toggleGame(true, "on")
+      setGuessedLetters([])
+      setChances(6)
+    })
+    .catch(error => {
+      console.log(`Error: ${error}`)
+    })
   }
 
   function handleButtonClick() {
