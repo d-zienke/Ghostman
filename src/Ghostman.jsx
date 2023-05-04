@@ -47,7 +47,7 @@ function Ghostman() {
     return randomWord
   }
 
-  getWord()
+  // getWord()
   // function getWord() {
   //   const wordsArray = data
   //   const randomIndex = Math.floor(Math.random() * (data.length + 1));
