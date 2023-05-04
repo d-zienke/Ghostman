@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useMemo} from "react"
 
 // React components
 import GameOn from "./components/Game-on"
@@ -6,19 +6,31 @@ import GameOff from "./components/Game-off"
 import GameStatus from "./components/Game-status"
 import Keyboard from "./components/Keyboard.jsx"
 
+import data from "./data"
+
 function Ghostman() {
   const [game, setGame] = useState({
     isOn: false,
     status: "off"
   })
-  const [word, setWord] = useState("hello world")
+  const [word, setWord] = useState("")
   const [guessedLetters, setGuessedLetters] = useState([])
   const [chances, setChances] = useState(5)
   const [statusMsg, setStatusMsg] = useState("Good luck!")
   const wordArray = word.split("")
   const lettersToGuess = getLettersToGuess()
   const puzzle = getPuzzle()
-  
+
+  useEffect(()=>{
+    setWord(getWord())
+  },[])
+
+  function getWord() {
+    const wordsArray = data
+    const randomIndex = Math.floor(Math.random() * (data.length + 1));
+    return String(wordsArray[randomIndex].puzzle_eng)
+  }
+
   function getLettersToGuess() {
     return wordArray.filter((letter, index) => {
       return (letter !== " " && wordArray.indexOf(letter) === index) ? letter : null
@@ -73,6 +85,7 @@ function Ghostman() {
   }
 
   function setNewGame() {
+    setWord(getWord())
     toggleGame(true, "on")
     setGuessedLetters([])
     setChances(5)
