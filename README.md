@@ -19,9 +19,6 @@ The `Ghostman` component returns a main container that contains two sections. Th
 
 ## Features to implement and new ideas
 * mark buttons that were used but did not match (toggle modifier class "--wrong")
-* The initial value of the word state is hardcoded - when (or before) the game starts, get random word
-  * either by using 3rd party API (e.g. "Wordnik") or from a custom database of words and phrases
-* add proper styling for mobile version
 * use computer keyboard to guess the letters
 * add header and/or footer to display project's info, like version, copyrights, etc.
 * add another language and allow switching between them before the game starts
