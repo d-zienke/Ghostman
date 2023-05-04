@@ -13,7 +13,7 @@ function Ghostman() {
   })
   const [word, setWord] = useState("hello world")
   const [guessedLetters, setGuessedLetters] = useState([])
-  const [chances, setChances] = useState(3)
+  const [chances, setChances] = useState(5)
   const [statusMsg, setStatusMsg] = useState("Good luck!")
   const wordArray = word.split("")
   const lettersToGuess = getLettersToGuess()
@@ -36,24 +36,56 @@ function Ghostman() {
     if(guessedLetters.indexOf(letter) !== -1) {
       showMessage(`already guessed`)
     } else if (wordArray.indexOf(letter) !== -1) {
-      showMessage('well done')
-      setGuessedLetters(prevState => [...prevState, letter])
+      handleGoodGuess(letter)
     } else {
-      showMessage('try again')
-      setChances(prevChances => prevChances - 1)
+      handleWrongGuess(letter)
     }
+  }
+
+  function handleGoodGuess(letter) {
+    showMessage('well done')
+    const newGuessedLetters = [...guessedLetters, letter];
+    setGuessedLetters(newGuessedLetters)
+    isGameWon(newGuessedLetters) && toggleGame(true, "won")
+  }
+  
+  function handleWrongGuess(letter) {
+    showMessage('try again')
+    const newChances = chances - 1;
+    setChances(newChances)
+    isGameOver(newChances) && toggleGame(false, "over")
   }
 
   function showMessage(message) {
     setStatusMsg(message)
   }
 
-  function startGame() {
-    setGame({isOn: true, status: "on"})
+  function isGameWon(guessedLetters) {
+    return guessedLetters.length === lettersToGuess.length
   }
 
-  function endGame() {
-    setGame({isOn: false, status: "over"})
+  function isGameOver(chances) {
+    return chances < 1
+  }
+
+  function toggleGame(isOn, status) {
+    setGame({isOn: isOn, status: status})
+  }
+
+  function setNewGame() {
+    toggleGame(true, "on")
+    setGuessedLetters([])
+    setChances(5)
+  }
+
+  function handleButtonClick() {
+    if(game.isOn) {
+      game.status === "won" ?
+      setNewGame() :
+      toggleGame(false, "over")
+    } else {
+      setNewGame()
+    }
   }
 
   return (
@@ -75,8 +107,8 @@ function Ghostman() {
         <div className="Ghostman__button-container">
           <button 
             className="btn" 
-            onClick={game.isOn ? endGame : startGame}
-          >{game.isOn ? "I give up" : "new game"}</button>
+            onClick={handleButtonClick}
+          >{game.isOn && game.status === "on" ? "I give up" : "new game"}</button>
         </div>
       </section>
     </main>
