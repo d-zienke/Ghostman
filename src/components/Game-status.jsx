@@ -4,21 +4,21 @@ import picGameOn from "../assets/images/ghost_game-on.png"
 import picGameOver from "../assets/images/ghost_game-over.png"
 import picGameWon from "../assets/images/ghost_game-won.png"
 
-function GameStatus({ game }) {
+function GameStatus({ game, statusMsg }) {
 
   function switchPics() {
     let pic = ""
     switch (game.status) {
-      case "Off":
+      case "off":
         pic = picGameOff
         break;
-      case "On":
+      case "on":
         pic = picGameOn
         break;
-      case "Over":
+      case "over":
         pic = picGameOver
         break;
-      case "Won":
+      case "won":
         pic = picGameWon
         break;
     }
@@ -32,11 +32,8 @@ function GameStatus({ game }) {
       </div>
       {game.isOn && 
       <div className="Ghostman__message">
-        <p>Good Luck!</p>
+        <p>{statusMsg}</p>
       </div>}
-      {/* <div className="Ghostman__message">
-        <p>Good Luck!</p>
-      </div> */}
     </>
   )
 }

@@ -8,12 +8,13 @@ import Keyboard from "./components/Keyboard.jsx"
 
 function Ghostman() {
   const [game, setGame] = useState({
-    isOn: true,
-    status: "On" // keep this capitalized to match the name of img
+    isOn: false,
+    status: "off"
   })
   const [word, setWord] = useState("hello world")
   const [guessedLetters, setGuessedLetters] = useState([])
   const [chances, setChances] = useState(3)
+  const [statusMsg, setStatusMsg] = useState("Good luck!")
   const wordArray = word.split("")
   const lettersToGuess = getLettersToGuess()
   const puzzle = getPuzzle()
@@ -44,13 +45,21 @@ function Ghostman() {
   }
 
   function showMessage(message) {
-    console.log(message)
+    setStatusMsg(message)
+  }
+
+  function startGame() {
+    setGame({isOn: true, status: "on"})
+  }
+
+  function endGame() {
+    setGame({isOn: false, status: "over"})
   }
 
   return (
     <main className="Ghostman">
       <section className="Ghostman__status">
-        <GameStatus game={game}/>
+        <GameStatus game={game} statusMsg={statusMsg}/>
       </section>
       <section className="Ghostman__controls">
         {game.isOn ? 
@@ -61,10 +70,13 @@ function Ghostman() {
             </div>
           </>
           : 
-          <GameOff />
+          <GameOff game={game} word={word}/>
         }
         <div className="Ghostman__button-container">
-          <button className="btn">new game</button>
+          <button 
+            className="btn" 
+            onClick={game.isOn ? endGame : startGame}
+          >{game.isOn ? "I give up" : "new game"}</button>
         </div>
       </section>
     </main>
