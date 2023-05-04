@@ -7,8 +7,14 @@ This is a simple variation of the classic word game Hangman, where player needs 
 Each letter is masked, displayed as an underscore ( `_` ). When the player has guessed a letter, every instance of this letter is uncovered. To win the game, player needs to uncover all letters before they run out of chances.
 
 ## Features to implement and new ideas
-* mobile version
+* render game status by swiching images of Ghost and displaying messages
+* mark buttons that were used but did not match (toggle modifier class "--wrong")
+* when (or before) the game starts, get random word
+  * either using 3rd party API (e.g. "Wordnik") or from a custom database of words and phrases
+* add styling for mobile version
 * use computer keyboard to guess the letters
+* add header and/or footer to display project's info, like version, copyrights, etc.
+* add another language and allow switching between them before the game starts
 
 ## Images used in the project
 * [ghost_game-off](https://www.freepik.com/free-vector/cute-ghost-brings-axis_32304191.htm#query=ghost&position=4&from_view=author) by **andhndstd** on Freepik
