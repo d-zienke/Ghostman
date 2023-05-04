@@ -34,7 +34,7 @@
       &--used {
         background-color: var.$color-primary;
         color: var.$color-primary;
-        cursor: not-allowed;
+        cursor: default;
         
         &:hover {
           background-color: var.$color-primary;
