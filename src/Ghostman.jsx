@@ -137,7 +137,12 @@ function Ghostman() {
   return (
     <>
       {game.status==="won" && <Confetti/>}
-      <header className="header">v. 1.0.0</header>
+      <header className="header">
+        <span className="repository">
+          <a href="https://github.com/d-zienke/Ghostman">GitHub repository</a>
+        </span>
+        <span className="version">v. 1.0.0</span>
+      </header>
       <main className="Ghostman">
         <section className="Ghostman__status">
           <GameStatus game={game} statusMsg={statusMsg}/>
@@ -161,7 +166,12 @@ function Ghostman() {
           </div>
         </section>
       </main>
-      <footer className="footer">Created by Damian Zienke</footer>
+      <footer className="footer">
+        <span className="author">Designed and created by <a href="https://github.com/d-zienke?tab=repositories">Damian Zienke</a></span>
+        <div className="credits">
+          <p>Pictures and icons by <a href="https://www.freepik.com/author/andhndstd">andhndstd</a> on Freepik,<br></br> <a href="https://www.iconfinder.com/quizanswers">Vlad Marin</a> and <a href="https://www.iconfinder.com/korawan_m">BomSymbols</a> on Iconfinder</p>
+        </div>
+      </footer>
     </>
   )
 }
