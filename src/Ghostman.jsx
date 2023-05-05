@@ -51,13 +51,6 @@ function Ghostman() {
     return randomWord
   }
 
-  // getWord()
-  // function getWord() {
-  //   const wordsArray = data
-  //   const randomIndex = Math.floor(Math.random() * (data.length + 1));
-  //   return String(wordsArray[randomIndex].puzzle_eng)
-  // }
-
   function getLettersToGuess() {
     return wordArray.filter((letter, index) => {
       return (letter !== " " && wordArray.indexOf(letter) === index) ? letter : null
@@ -141,7 +134,7 @@ function Ghostman() {
         <span className="repository">
           <a href="https://github.com/d-zienke/Ghostman">GitHub repository</a>
         </span>
-        <span className="version">v. 1.0.0</span>
+        <span className="version">v. 1.0.1</span>
       </header>
       <main className="Ghostman">
         <section className="Ghostman__status">

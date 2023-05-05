@@ -114,7 +114,7 @@ a, a:hover, a:active {
     width: 100%;
     padding: 3rem 3rem;
     grid-template-columns: 100%;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 60% 40%;
   }
 }
 .Ghostman__status {
@@ -142,7 +142,6 @@ a, a:hover, a:active {
   .Ghostman__picture img {
     max-height: 90%;
     max-width: 100%;
-    margin-top: 5rem;
   }
 }
 .Ghostman__message {
@@ -208,7 +207,7 @@ a, a:hover, a:active {
 }
 @media (max-width: 600px) {
   .Ghostman__keyboard {
-    margin-bottom: 0;
+    margin-bottom: 2rem;
     width: 90%;
   }
 }

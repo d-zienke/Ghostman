@@ -1,5 +1,7 @@
 # Ghostman Game project
-Implemented using HTML, JavaScript, React 18, SCSS and Vite
+Implemented using `HTML`, `JavaScript`, `React 18`, `SCSS` and `Supabase`
+
+Compiled with `Vite`
 
 ## Short description
 This is a simple variation of the classic word game Hangman, where player needs to guess a randomly generated word, one letter at a time.
