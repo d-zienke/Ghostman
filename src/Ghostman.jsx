@@ -1,5 +1,7 @@
 import React, {useState, useEffect, useMemo} from "react"
 import { createClient } from '@supabase/supabase-js'
+// import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from 'react-confetti'
 
 // React components
 import GameOn from "./components/Game-on"
@@ -21,6 +23,8 @@ function Ghostman() {
   const wordArray = word.split("")
   const lettersToGuess = getLettersToGuess()
   const puzzle = getPuzzle()
+
+  // const { width, height } = useWindowSize()
 
   useEffect(()=>{
     getWord()
@@ -132,6 +136,7 @@ function Ghostman() {
 
   return (
     <>
+      {game.status==="won" && <Confetti/>}
       <header className="header">v. 1.0.0</header>
       <main className="Ghostman">
         <section className="Ghostman__status">
