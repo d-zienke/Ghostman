@@ -131,29 +131,33 @@ function Ghostman() {
   }
 
   return (
-    <main className="Ghostman">
-      <section className="Ghostman__status">
-        <GameStatus game={game} statusMsg={statusMsg}/>
-      </section>
-      <section className={game.isOn ? "Ghostman__controls" : "Ghostman__controls Ghostman__controls--inactive"}>
-        {game.isOn ? 
-          <>
-            <GameOn puzzle={puzzle} chances={chances}/> 
-            <div className="Ghostman__keyboard">
-              <Keyboard handleClick={makeGuess} guessedLetters={guessedLetters}/>
-            </div>
-          </>
-          : 
-          <GameOff game={game} word={word}/>
-        }
-        <div className="Ghostman__button-container">
-          <button 
-            className="btn" 
-            onClick={handleButtonClick}
-          >{game.isOn && game.status === "on" ? "I give up" : "new game"}</button>
-        </div>
-      </section>
-    </main>
+    <>
+      <header className="header">v. 1.0.0</header>
+      <main className="Ghostman">
+        <section className="Ghostman__status">
+          <GameStatus game={game} statusMsg={statusMsg}/>
+        </section>
+        <section className={game.isOn ? "Ghostman__controls" : "Ghostman__controls Ghostman__controls--inactive"}>
+          {game.isOn ? 
+            <>
+              <GameOn puzzle={puzzle} chances={chances}/> 
+              <div className="Ghostman__keyboard">
+                <Keyboard handleClick={makeGuess} guessedLetters={guessedLetters}/>
+              </div>
+            </>
+            : 
+            <GameOff game={game} word={word}/>
+          }
+          <div className="Ghostman__button-container">
+            <button 
+              className="btn" 
+              onClick={handleButtonClick}
+            >{game.isOn && game.status === "on" ? "I give up" : "new game"}</button>
+          </div>
+        </section>
+      </main>
+      <footer className="footer">Created by Damian Zienke</footer>
+    </>
   )
 }
 
