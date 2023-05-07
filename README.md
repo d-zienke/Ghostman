@@ -43,6 +43,8 @@ The `Ghostman` component returns a main container that contains two sections. Th
 * add another language and allow switching between them before the game starts
 
 ## Version history
+* 1.0.2
+  * Minor styling adjustements were made
 * 1.0.1
   * Fixed bug on smaller devices (height around 545px): the button was too close to keyboard
 
