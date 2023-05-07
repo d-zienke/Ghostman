@@ -16,7 +16,7 @@ function Ghostman() {
     isOn: false,
     status: "off"
   })
-  const [word, setWord] = useState("")
+  const [word, setWord] = useState("hello world")
   const [guessedLetters, setGuessedLetters] = useState([])
   const [chances, setChances] = useState(6)
   const [statusMsg, setStatusMsg] = useState("Good luck!")
@@ -24,7 +24,7 @@ function Ghostman() {
   const lettersToGuess = getLettersToGuess()
   const puzzle = getPuzzle()
 
-  // const { width, height } = useWindowSize()
+  /* uncomment after testing ----------
 
   useEffect(()=>{
     getWord()
@@ -50,6 +50,8 @@ function Ghostman() {
 
     return randomWord
   }
+
+  */
 
   function getLettersToGuess() {
     return wordArray.filter((letter, index) => {
@@ -104,6 +106,8 @@ function Ghostman() {
     setGame({isOn: isOn, status: status})
   }
 
+  /* uncomment after testing ----------
+
   function setNewGame() {
     getWord()
     .then(data => {
@@ -116,6 +120,19 @@ function Ghostman() {
       console.log(`Error: ${error}`)
     })
   }
+
+  */
+
+  // delete after testing -------------
+
+  function setNewGame() {
+    setWord("hello world")
+    toggleGame(true, "on")
+    setGuessedLetters([])
+    setChances(6)
+  }
+
+  // ----------------------------------
 
   function handleButtonClick() {
     if(game.isOn) {
