@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 .env
+*.fig
+figma*
 
 # Editor directories and files
 .vscode/*

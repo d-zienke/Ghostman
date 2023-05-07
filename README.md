@@ -42,6 +42,10 @@ The `Ghostman` component returns a main container that contains two sections. Th
 * use computer keyboard to guess the letters
 * add another language and allow switching between them before the game starts
 
+## Version history
+* 1.0.1
+  * Fixed bug on smaller devices (height around 545px): the button was too close to keyboard
+
 ## Images used in the project
 * [ghost_game-off](https://www.freepik.com/free-vector/cute-ghost-brings-axis_32304191.htm#query=ghost&position=4&from_view=author) by **andhndstd** on Freepik
 * [ghost_game-on](https://www.freepik.com/free-vector/cute-ghost-full-love_32304213.htm#query=ghost&position=20&from_view=author) by **andhndstd** on Freepik
