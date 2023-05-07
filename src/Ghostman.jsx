@@ -9,14 +9,12 @@ import GameOff from "./components/Game-off"
 import GameStatus from "./components/Game-status"
 import Keyboard from "./components/Keyboard.jsx"
 
-// import data from "./data"
-
 function Ghostman() {
   const [game, setGame] = useState({
     isOn: false,
     status: "off"
   })
-  const [word, setWord] = useState("hello world")
+  const [word, setWord] = useState("")
   const [guessedLetters, setGuessedLetters] = useState([])
   const [chances, setChances] = useState(6)
   const [statusMsg, setStatusMsg] = useState("Good luck!")
@@ -25,11 +23,10 @@ function Ghostman() {
   const puzzle = getPuzzle()
 
   // turn off for testing -------------
-
   useEffect(()=>{
     getWord()
       .then(data => {
-        setWord(data[0].puzzle_eng)
+        setWord(data[0].puzzle_word)
       })
       .catch(error => {
         console.log(`Error: ${error}`)
@@ -37,20 +34,18 @@ function Ghostman() {
   },[])
   
   async function getWord() {
-    const randomIndex = Math.floor(Math.random() * 100) + 1;
+    const randomIndex = Math.floor(Math.random() * 220) + 1;
     
     const supabaseUrl = 'https://dtwbyxxwpwmlzdhjmcql.supabase.co'
     const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
     const supabase = createClient(supabaseUrl, supabaseKey)
     
     let { data: randomWord, error } = await supabase
-    .from('puzzles-eng')
-    .select('puzzle_eng')
+    .from('puzzles')
+    .select('puzzle_word')
     .eq('id', randomIndex)
-
     return randomWord
   }
-
   //
 
   function getLettersToGuess() {
@@ -107,11 +102,10 @@ function Ghostman() {
   }
 
   // turn off for testing -------------
-
   function setNewGame() {
     getWord()
     .then(data => {
-      setWord(data[0].puzzle_eng)
+      setWord(data[0].puzzle_word)
       toggleGame(true, "on")
       setGuessedLetters([])
       setChances(6)
@@ -120,18 +114,15 @@ function Ghostman() {
       console.log(`Error: ${error}`)
     })
   }
-
   //
 
   /* uncomment for testing ------------
-
   function setNewGame() {
     setWord("hello world")
     toggleGame(true, "on")
     setGuessedLetters([])
     setChances(6)
   }
-
   */
 
   function handleButtonClick() {
