@@ -289,13 +289,10 @@ a, a:hover, a:active {
 .Keyboard__key:hover {
   background-color: #BEBEBE;
 }
-.Keyboard__key--used {
+.Keyboard__key--used, .Keyboard__key--used:hover, .Keyboard__key--used:active {
   background-color: #EAF4FA;
   color: #EAF4FA;
   cursor: default;
-}
-.Keyboard__key--used:hover {
-  background-color: #EAF4FA;
 }
 
 /*# sourceMappingURL=main.css.map */
