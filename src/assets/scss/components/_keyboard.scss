@@ -31,14 +31,10 @@
         background-color: var.$color-gray-dark;
       }
 
-      &--used {
+      &--used, &--used:hover, &--used:active {
         background-color: var.$color-primary;
         color: var.$color-primary;
         cursor: default;
-        
-        &:hover {
-          background-color: var.$color-primary;
-        };
       }
     }
   }
