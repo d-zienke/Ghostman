@@ -24,7 +24,7 @@ function Ghostman() {
   const lettersToGuess = getLettersToGuess()
   const puzzle = getPuzzle()
 
-  /* uncomment after testing ----------
+  // turn off for testing -------------
 
   useEffect(()=>{
     getWord()
@@ -51,7 +51,7 @@ function Ghostman() {
     return randomWord
   }
 
-  */
+  //
 
   function getLettersToGuess() {
     return wordArray.filter((letter, index) => {
@@ -106,7 +106,7 @@ function Ghostman() {
     setGame({isOn: isOn, status: status})
   }
 
-  /* uncomment after testing ----------
+  // turn off for testing -------------
 
   function setNewGame() {
     getWord()
@@ -121,9 +121,9 @@ function Ghostman() {
     })
   }
 
-  */
+  //
 
-  // delete after testing -------------
+  /* uncomment for testing ------------
 
   function setNewGame() {
     setWord("hello world")
@@ -132,7 +132,7 @@ function Ghostman() {
     setChances(6)
   }
 
-  // ----------------------------------
+  */
 
   function handleButtonClick() {
     if(game.isOn) {
