@@ -145,7 +145,7 @@ function Ghostman() {
         <span className="repository">
           <a href="https://github.com/d-zienke/Ghostman">GitHub repository</a>
         </span>
-        <span className="version">v. 1.0.2</span>
+        <span className="version">v. 1.1.0</span>
       </header>
       <main className="Ghostman">
         <section className="Ghostman__status">
