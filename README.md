@@ -39,7 +39,6 @@ The component defines several functions to handle user input and update the stat
 The `Ghostman` component returns a main container that contains two sections. The first section contains a `GameStatus` component that displays the current status of the game and a `GameOff` or `GameOn` component depending on whether the game is on or off.
 
 ## Features to implement and new ideas
-* mark buttons that were used but did not match (toggle modifier class "--wrong")
 * use computer keyboard to guess the letters
 * add another language and allow switching between them before the game starts
 * add difficulty levels
@@ -47,6 +46,10 @@ The `Ghostman` component returns a main container that contains two sections. Th
 * add scoring system
 
 ## Version history
+* 1.2.0
+  * Buttons on the keyboard are now being marked after wrong guess
+  * Bug with updating the game's status message has been fixed
+  * New variant of button has been added (`.btn--outline`)
 * 1.1.0
   * Modal window with instructions on how to play has been added
 * 1.0.2
