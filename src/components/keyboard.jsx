@@ -1,4 +1,4 @@
-function Keyboard({ handleClick, guessedLetters }) {
+function Keyboard({ handleClick, guessedLetters, wrongLetters }) {
     const keysArray = [
         "q","w","e","r","t","y","u","i","o","p",
         "a","s","d","f","g","h","j","k","l",
@@ -16,6 +16,7 @@ function Keyboard({ handleClick, guessedLetters }) {
             2 : 3
         }`
         if(guessedLetters.indexOf(key) !== -1) className += ` Keyboard__key--used`
+        if(wrongLetters.indexOf(key) !== -1) className += ` Keyboard__key--wrong`
 
         
         return <a 

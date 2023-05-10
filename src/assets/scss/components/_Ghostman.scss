@@ -240,4 +240,15 @@
             color: black;
         }
     }
+
+    &--outline {
+        background-color: var.$color-primary;
+        border: .3rem solid var.$color-accent;
+
+        &:hover {
+            background-color: var.$color-accent;
+            color: black;
+            border-color: var.$color-accent-dark;
+        }
+    }
 }

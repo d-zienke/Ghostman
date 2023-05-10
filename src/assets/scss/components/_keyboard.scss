@@ -36,5 +36,11 @@
         color: var.$color-primary;
         cursor: default;
       }
+
+      &--wrong, &--wrong:hover, &--wrong:active {
+        background-color: var.$color-heart-pink;
+        color: black;
+        cursor: default;
+      }
     }
   }

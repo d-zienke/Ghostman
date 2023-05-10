@@ -17,6 +17,7 @@ function Ghostman() {
   })
   const [word, setWord] = useState("")
   const [guessedLetters, setGuessedLetters] = useState([])
+  const [wrongLetters, setWrongLetters] = useState([])
   const [chances, setChances] = useState(6)
   const [statusMsg, setStatusMsg] = useState("Good luck!")
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -82,6 +83,8 @@ function Ghostman() {
   
   function handleWrongGuess(letter) {
     showMessage('try again')
+    const newWrongLetters = [...wrongLetters, letter]
+    setWrongLetters(newWrongLetters)
     const newChances = chances - 1;
     setChances(newChances)
     isGameOver(newChances) && toggleGame(false, "over")
@@ -110,6 +113,8 @@ function Ghostman() {
       setWord(data[0].puzzle_word)
       toggleGame(true, "on")
       setGuessedLetters([])
+      setWrongLetters([])
+      setStatusMsg("Good luck!")
       setChances(6)
     })
     .catch(error => {
@@ -156,7 +161,7 @@ function Ghostman() {
             <>
               <GameOn puzzle={puzzle} chances={chances}/> 
               <div className="Ghostman__keyboard">
-                <Keyboard handleClick={makeGuess} guessedLetters={guessedLetters}/>
+                <Keyboard handleClick={makeGuess} guessedLetters={guessedLetters} wrongLetters={wrongLetters}/>
               </div>
             </>
             : 
@@ -164,7 +169,7 @@ function Ghostman() {
           }
           <div className="Ghostman__button-container">
             {game.isOn && <button 
-              className="btn" 
+              className="btn btn--outline" 
               onClick={()=>{setIsModalOpen(true)}}
             >how to play</button>}
             <button 
