@@ -83,6 +83,8 @@ function Ghostman() {
   
   function handleWrongGuess(letter) {
     showMessage('try again')
+    const newWrongLetters = [...wrongLetters, letter]
+    setWrongLetters(newWrongLetters)
     const newChances = chances - 1;
     setChances(newChances)
     isGameOver(newChances) && toggleGame(false, "over")
@@ -111,6 +113,7 @@ function Ghostman() {
       setWord(data[0].puzzle_word)
       toggleGame(true, "on")
       setGuessedLetters([])
+      setWrongLetters([])
       setChances(6)
     })
     .catch(error => {
