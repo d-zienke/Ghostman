@@ -114,6 +114,7 @@ function Ghostman() {
       toggleGame(true, "on")
       setGuessedLetters([])
       setWrongLetters([])
+      setStatusMsg("Good luck!")
       setChances(6)
     })
     .catch(error => {
