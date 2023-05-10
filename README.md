@@ -47,6 +47,8 @@ The `Ghostman` component returns a main container that contains two sections. Th
 * add scoring system
 
 ## Version history
+* 1.1.0
+  * Modal window with instructions on how to play has been added
 * 1.0.2
   * Minor styling adjustements were made
 * 1.0.1

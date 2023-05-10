@@ -8,6 +8,7 @@ import GameOn from "./components/Game-on"
 import GameOff from "./components/Game-off"
 import GameStatus from "./components/Game-status"
 import Keyboard from "./components/Keyboard.jsx"
+import Modal from "./components/Modal"
 
 function Ghostman() {
   const [game, setGame] = useState({
@@ -18,6 +19,7 @@ function Ghostman() {
   const [guessedLetters, setGuessedLetters] = useState([])
   const [chances, setChances] = useState(6)
   const [statusMsg, setStatusMsg] = useState("Good luck!")
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const wordArray = word.split("")
   const lettersToGuess = getLettersToGuess()
   const puzzle = getPuzzle()
@@ -138,11 +140,12 @@ function Ghostman() {
   return (
     <>
       {game.status==="won" && <Confetti/>}
+      {(game.isOn && isModalOpen) && <Modal toggleModal={setIsModalOpen}/>}
       <header className="header">
         <span className="repository">
           <a href="https://github.com/d-zienke/Ghostman">GitHub repository</a>
         </span>
-        <span className="version">v. 1.0.2</span>
+        <span className="version">v. 1.1.0</span>
       </header>
       <main className="Ghostman">
         <section className="Ghostman__status">
@@ -160,6 +163,10 @@ function Ghostman() {
             <GameOff game={game} word={word}/>
           }
           <div className="Ghostman__button-container">
+            {game.isOn && <button 
+              className="btn" 
+              onClick={()=>{setIsModalOpen(true)}}
+            >how to play</button>}
             <button 
               className="btn" 
               onClick={handleButtonClick}
