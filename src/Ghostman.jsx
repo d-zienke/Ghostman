@@ -169,7 +169,7 @@ function Ghostman() {
           }
           <div className="Ghostman__button-container">
             {game.isOn && <button 
-              className="btn" 
+              className="btn btn--outline" 
               onClick={()=>{setIsModalOpen(true)}}
             >how to play</button>}
             <button 
