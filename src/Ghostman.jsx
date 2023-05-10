@@ -17,6 +17,7 @@ function Ghostman() {
   })
   const [word, setWord] = useState("")
   const [guessedLetters, setGuessedLetters] = useState([])
+  const [wrongLetters, setWrongLetters] = useState([])
   const [chances, setChances] = useState(6)
   const [statusMsg, setStatusMsg] = useState("Good luck!")
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -156,7 +157,7 @@ function Ghostman() {
             <>
               <GameOn puzzle={puzzle} chances={chances}/> 
               <div className="Ghostman__keyboard">
-                <Keyboard handleClick={makeGuess} guessedLetters={guessedLetters}/>
+                <Keyboard handleClick={makeGuess} guessedLetters={guessedLetters} wrongLetters={wrongLetters}/>
               </div>
             </>
             : 
